@@ -1,0 +1,73 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<body>
+    <div id="watch">
+        <p>结果：{{answer}}</p>
+        <input v-model="question" id="qa" />
+        <ul id="v-for-object" class="demo">
+            <li v-for="(value,index) in object">
+                {{index}}:{{value}}
+            </li>
+        </ul>
+
+        <ul>
+            <template v-for="(item,index) in object">
+                <li>{{ item }}</li>
+                <li class="divider">divider</li>
+            </template>
+        </ul>
+
+        <ul id="v-for-array" class="demo">
+            <li v-for="(value,index) in filter">
+                {{index}}:{{value}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    var obj = {
+        name: 'name',
+        age: 'age',
+        love: ['swim', 'read']
+    };
+    var vi = new Vue({
+        el: '#watch',
+        data: {
+            answer: "请输入问题-_-",
+            question: '',
+            object: obj,
+            array: [1, 2, 3, 4]
+        },
+        computed: {
+            filter: function () {
+                return this.array.filter(function (number) {
+                    return number % 2 === 0;
+                });
+            }
+        },
+        watch: {
+            question: function (newq) {
+                this.answer = "正在输入...";
+                this.getAnswer();
+            }
+        },
+        methods: {
+            getAnswer: function () {
+                if (this.question.indexOf('?') == -1) {
+                    this.answer = "请输入正确格式的问题";
+                    return;
+                }
+                this.answer = "我在思考中";
+                var vm = this;//一旦进入下一个函数就会改变this的指向
+                setTimeout(function () {
+                    vm.answer = "我不会";
+                }, 2000);
+            }
+        }
+    });
+    Vue.set(vi.object, 'sex', '0');
+    // Vue.set
+    Vue.set(vi.array, 1, 2);
+    vi.array.splice(5);
+    console.log(vi.array.length);   
+</script>

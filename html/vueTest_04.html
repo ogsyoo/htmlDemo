@@ -1,0 +1,45 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<body>
+    <div id="test_exmple">
+
+    </div>
+</body>
+<script>
+
+
+    var mixin = {
+        methods: {
+            foo: function () {
+                console.log('foo')
+            },
+            conflicting: function () {
+                console.log('from mixin')
+            }
+        }
+    }
+    var vm = new Vue({
+        mixins: [mixin],
+        methods: {
+            bar: function () {
+                console.log('bar')
+            },
+            conflicting: function () {
+                console.log('from self')
+            }
+        }
+    })
+    vm.foo() // => "foo"
+    vm.bar() // => "bar"
+    vm.conflicting() 
+
+    // var vm = new Vue({
+    //     el:'#test_exmple',
+    //     created:function(){
+    //         console.log('我初始化了');
+    //     },
+    //     method:function(){
+    //         console.log('这是我的方法区');
+    //     }
+    // });
+</script>

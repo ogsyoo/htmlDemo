@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>js测试父子之间通信</title>
+	<script type="text/javascript" src="../bower_components/vue/dist/vue.js"></script>
+	<style>
+		.box {
+			width: 100%;
+			max-width: 640px;
+			margin: 40px auto;
+			border: 1px solid #ccc;
+			padding: 20px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="app">
+		<!-- 定义 -->
+		<child :msg-data="msg" @child-get="getList" @child-cancel="clearList">
+			<!-- <slot="cs-slot"></slot> -->
+		</child>
+	</div>
+	<script>
+		var tx = function () {
+			// 父组件
+			var child = {
+				template: `
+                     <div class="box">
+						 <button @click="send">获取数据</button>
+    					 <button @click="cancel" type="primary">取消数据</button>
+    					 <div>
+                             <ul>
+                                 <li v-for="item in msgData">名称：{{item.name}}---id：{{item.id}}</li>
+                             </ul>
+    					 </div>
+                     </div>
+				`,
+				props: ['msgData'],//接收父传来的数据
+				methods: {
+					send: function () {
+						// 发送给父的方法 
+						this.$emit('child-get', 'hellow kitty')
+					},
+					cancel: function () {
+						this.$emit('child-cancel', '')
+					}
+				}
+
+			}
+			return new Vue({
+				el: '#app',
+				data: {
+					msg: []
+				},
+				methods: {
+					getList: function (val) {
+						console.log(val);
+						this.msg = [{ name: '百度', id: '001' }, { name: '百威', id: '002' }, { name: '腾讯', id: '003' }];
+					},
+					clearList: function () {
+						this.msg = [];
+					}
+				},
+				components: {
+					child: child
+				},
+				mounted:function(){
+					console.log('我在执行');
+				}
+			})
+		}()
+	</script>
+</body>
+
+</html>

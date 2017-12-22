@@ -1,0 +1,66 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<body>
+    <div id='click'>
+        <button v-on:click="greet">greet</button>
+        <input v-on:keyup.67="submit">
+        <br>
+
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+        <br>
+        <select v-model="selected">
+            <option v-for="option in options" v-bind:value="option.value">
+                {{ option.text }}
+            </option>
+        </select>
+        <span>Selected: {{ selected }}</span>
+        <br>
+    </div>
+</body>
+<script>
+    var example2 = new Vue({
+        el: '#click',
+        data: {
+            name: 'Vue.js',
+            checkedNames: [],
+            toggle:'',
+            selected: 'A',
+            options: [
+                { text: 'One', value: 'A' },
+                { text: 'Two', value: 'B' },
+                { text: 'Three', value: 'C' }
+            ]
+        },
+        // 在 `methods` 对象中定义方法
+        methods: {
+            submit: function () {
+                alert('我要提交了');
+            },
+            doThis: function (event) {
+                if (event) {
+                    alert(event.target.tagName)
+                }
+            },
+            doThat: function (event) {
+                if (event) {
+                    alert(event.target.tagName)
+                }
+            },
+            greet: function (event) {
+                // `this` 在方法里指当前 Vue 实例
+                alert('Hello ' + this.name + '!')
+                // `event` 是原生 DOM 事件
+                if (event) {
+                    alert(event.target.tagName)
+                }
+            }
+        }
+    })
+</script>

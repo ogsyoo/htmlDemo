@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<style>
+    .divcss5 {
+        height: 100px;
+        width: 200px;
+        border: 1px solid #F00
+    }
+</style>
+
+<body>
+    <button id="btn">点击</button>
+    <div id='div' class="divcss5" hidden>
+
+    </div>
+</body>
+<script>
+    $(function () {
+        var $tips = $('#div');
+        $("#btn").click(function (event) {
+            $tips.html(`
+                1111 /
+                2222 /
+                3333`
+            );
+            // $tips.show();
+            $tips.toggle();
+            $(document).one("click",
+                function () { //对document绑定一个影藏Div方法
+                    $tips.hide();
+                });
+            event.stopPropagation(); //阻止事件向上冒泡
+        });
+        $tips.click(function (event) {
+            event.stopPropagation(); //阻止事件向上冒泡
+        });
+    });
+</script>
+
+</html>

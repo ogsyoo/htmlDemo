@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+</body>
+<script>
+    var z = { w: "Super Hello" }
+    var y = { x: "hello", __proto__: z };
+
+    console.log(Reflect.getOwnPropertyDescriptor(y, "x"));
+    console.log(Reflect.has(y, "w"));
+    console.log(Reflect.ownKeys(y, "w"));
+
+    console.log(Reflect.has(y, "x"));
+    console.log(Reflect.deleteProperty(y, "x"))
+    console.log(y);
+    console.log(Reflect.has(y, "x"));
+
+
+
+
+
+    // class People {
+    //     constructor(name, age) {
+    //         this.name = name;
+    //         this.age = age;
+    //     }
+    //     static sta() {
+    //         console.log('static fun');
+    //     }
+    //     toString() {
+    //         console.log(this.name, "--->", this.age)
+    //     }
+    // }
+    // class Student extends People {
+    //     constructor(name, age, sNo) {
+    //         super(name, age);
+    //         this.sNo = sNo;
+    //     }
+    //     toString() {
+    //         console.log(this.name, '--', this.age, '--', this.sNo);
+    //     }
+    //     static getStr() {
+    //         return 'gsy';
+    //     }
+    // }
+    // Student.prototype.fun = function () {
+    //     console.log("fun");
+    // }
+    // var stu = {
+    //     name: 'name',
+    //     age: 'age',
+    //     fun: function () {
+    //         setTimeout(() => {
+    //             console.log(this.name, this.age);
+    //         }, 1000);
+    //     },
+    //     fun1: function () {
+    //         console.log(this.name, this.age);
+    //     }
+    // }
+    // var lis = document.getElementsByTagName('li');
+    // 使用var
+    // for (var i = 0; i < lis.length; i++) {
+    //     lis[i].index = i;
+    //     lis[i].onclick = function () {
+    //         console.log(this.index);
+    //     }
+    // }
+    // 使用let
+    // for (let i = 0; i < lis.length; i++) {
+    //     lis[i].onclick = function () {
+    //         console.log(i);
+    //     }
+    // }
+</script>
+
+</html>

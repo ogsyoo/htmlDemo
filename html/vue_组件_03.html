@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="../bower_components/vue/dist/vue.js"></script> -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<div id="app">
+    <!-- 父组件：
+    <input v-model="parent.hello">
+    <br/> 子组件：
+    <test :child='parent'></test> -->
+    <input type="text" value="1">
+    <input type="text" value="w">
+    <input type="text" value="e">
+    <input type="text" value="4">
+    <input type="text" value="5">
+    <input type="text" value="6">
+    <input type="text" value="7">
+    <input type="text" value="8">
+</div>
+<script>  
+    $(function(){
+        $('input').bind('input propertychange',function(){ 
+            console.log(this); 
+            $(this).css("color","red");
+        });
+    })
+    // var vm = new Vue({
+    //     el: '#app',
+    //     data: {
+    //         parent: {
+    //             hello: 1
+    //         }
+    //     },
+    //     components: {
+    //         "test": {
+    //             props: {
+    //                 child: {
+    //                     type: Object
+    //                 }
+    //             },
+    //             template: "<input v-model='child.hello'/>",
+    //         },
+    //     }
+    // });  
+</script>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../bower_components/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <!-- <div id="counter-event-example"> -->
+    <div id="box">
+        <!-- <input type="text" v-model='todo'> -->
+        <my-component v-bind='todo'></my-component>
+        <my_first></my_first>
+    </div>
+    <div class="box">
+        <my_first></my_first>
+    </div>
+    <!-- </div> -->
+</body>
+<script>
+    Vue.component('my_first', {
+        template: '<p>全局组件</p>'
+    })
+
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            todo: { name: 'name', age: 'age' }
+        },
+        components: {
+            'my-component': {
+                props: ['name', 'age'],
+                template: '<div>A custom component!{{name}}{{age}}</div>',
+            }
+        }
+    });
+
+    var vm1 = new Vue({
+        el: '.box'
+
+    });
+
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="https://unpkg.com/vue"></script> -->
+    <script src="../bower_components/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="box">
+        <ul>
+            <li v-for="pro in orderBy">{{pro}}</li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+    console.log('q'.charCodeAt());
+    console.log('r'.charCodeAt());
+    console.log('s'.charCodeAt());
+    var vm = new Vue({
+        el: '#box',
+        data: {
+            products: [
+                { name: '苹果', price: 25, category: "水果" },
+                { name: '香蕉', price: 15, category: "水果" },
+                { name: '雪梨', price: 65, category: "水果" },
+                { name: '宝马', price: 2500, category: "汽车" },
+                { name: '奔驰', price: 10025, category: "汽车" },
+                { name: '柑橘', price: 15, category: "水果" },
+                { name: '奥迪', price: 25, category: "汽车" },
+                { name: '奥迪', price: 25, category: "人事" }
+            ]
+        },
+        computed: {
+            filterLimit: function () {
+                return this.products.slice(0, 2);
+            },
+            orderBy: function () {
+                return this.products.sort(
+                    function (x, y) {
+                        var name1 = x.name;
+                        var name2 = y.name;
+                        if (name1 > name2) {
+                            return 1;
+                        } else if (name1 < name2) {
+                            return -1;
+                        } else {
+                            return 0
+                        }
+                        // return x['category'].localeCompare(y['category']);
+                    });
+            }
+        }
+    });
+
+</script>

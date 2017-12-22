@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+        <label class="form-title" for="new_pass">新密码：</label>
+        <input  id="new_pass" v-validate:new-pass="{required: true, maxlength: 18, minlength: 6}" class="form-control" placeholder="请输入新密码"  v-model="newPass"/>
+        <div v-if="$validation.newPass.touched" class="errors">
+</body>
+<script>
+    var gsy = 'abc';
+    console.log(gsy.charCodeAt(0));
+    console.log(gsy.charCodeAt(1));
+    console.log(gsy.charCodeAt(2));
+    var z = String.fromCharCode(3621332874);
+</script>
+
+</html>
