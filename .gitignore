@@ -1,0 +1,15 @@
+htmls/
+npm-debug.log
+.vscode
+.vs
+node_modules
+jsconfig.json
+typings.json
+typings/globals/
+typings/modules/
+typings/index.d.ts
+typings.json
+myApp/
+*[tT]emp/
+.tmp/
+bower_components/
