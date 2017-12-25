@@ -1,20 +1,26 @@
 var async = require('async');
 var util = require('util');
+console.time("auto");
 async.auto({
-    func1: function (callback, results) {
-        callback(null, "abc", "bbc");
+    getData: function (cb) {
+        console.log('第一步, 获取数据')
+        cb(null, 1)
     },
-
-    func2: function (callback, results) {
-        console.log("Print#1:\n" + util.inspect(results));
-        callback(null, { "puncha": "during" });
+    makeDir: function (cb) {
+        console.log('第二步,创建文件夹')
+        cb(null, 2)
     },
-    func3: ["func2", function (callback, results) {
-        console.log("Print#2:\n" + util.inspect(results));
-        callback(null, 3);
+    writeFile: ['getData', 'makeDir', function (rs, cb) {
+        console.log("rs", "====>", rs);
+        console.log('第三部, 写文件')
+        cb(null, 3)
     }],
-    func4: ["func1", "func3", function (callback, results) {
-        console.log("Print#3:\n" + util.inspect(results));
-        callback(null);
+    sendEmail: ['writeFile', function (rs, cb) {
+        console.log("rs", "====>", rs);
+        console.log('第四步, 发送文档', rs)
+        cb(null, 4)
     }]
-});
+}, function (err, rs) {
+    console.log(err, rs, 'auto')
+})
+console.timeEnd('auto')

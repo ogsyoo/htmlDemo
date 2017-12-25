@@ -46,50 +46,6 @@ console.log(JSON.stringify(result))
 
 
 
-// var obj = {
-//     name:"name",
-//     ae:"age"
-// }
-// console.log(obj.name.isValid);
-// var arr = [1,2,3,4];
-// for(var key in obj){
-//     console.log(key,'--->',obj[key]);
-// }
-// arr.map(function(item){
-//     console.log(item);
-// })
-
-// var A = function (name, age) {
-//     this.name = name;
-//     this.age = age;
-//     this.sleep = function () {
-//         console.log(this.name, '|', this.age, '  内部方法')
-//     }
-// };
-// A.prototype.fun2 = function () {
-//     console.log(this.name, '|', this.age, '这是原型方法');
-// }
-// var a = new A();
-// console.log(a.__proto__); //A {}（即构造器function A 的原型对象）
-// console.log(a.__proto__.__proto__); //Object {}（即构造器function Object 的原型对象）
-// console.log(a.__proto__.__proto__.__proto__); //null
-// function B(name, age) {
-//     A.call(this);
-//     this.name = name || 'gw';
-//     this.age = age || 30;
-// }
-// var b = new B();
-// b.sleep();
-// b.fun2();
-
-
-
-// B.prototype = new A();
-// B.prototype.name = 'gw';
-// B.prototype.age = 20;
-// var b = new B();
-// b.fun2();
-// b.sleep();
 
 
 
