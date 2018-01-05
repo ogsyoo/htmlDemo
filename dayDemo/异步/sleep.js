@@ -5,38 +5,24 @@ function wait(time) {
     while (new Date().getTime() < newTime + time);
 }
 
-var time = 5000;
+var time = 1000;
 // console.log("现在是 ： ", new Date().toLocaleTimeString());
 console.time('time');
 console.log("休眠 ", time / 1000, "秒");
-wait(time);
+// wait(time);
 // console.log("现在是 ： ", new Date().toLocaleTimeString());
 console.timeEnd('time');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var amount = 1000;
+setTimeout(function () {
+    amount += 100;
+    console.log(amount);
+}, 1000);
+setTimeout(function () {
+    amount -= 50;
+    console.log(amount);
+}, 1000);
 
 // console.log('begin');
 // var i = 0;
