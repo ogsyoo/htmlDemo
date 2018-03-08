@@ -2,10 +2,10 @@
 var co = require('co');
 var fs = require('fs');
 var readFile = require('fs-readfile-promise');
-
+var iconv = require('iconv-lite');
 
 co(function* () {
-    var r1 = yield readFile('d:/dept.json')
+    var r1 = yield readFile('d:/fluentd.conf')
     console.log(123);
     console.log(r1.toString());
     var r2 = yield readFile('d:/1.txt');

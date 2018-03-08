@@ -1,13 +1,15 @@
-function People(name,age){
+x = "123"
+function People(name, age) {
     this.name = name,
-    this.age = age,
-    this.getAge = function(){
-        return this.age;
-    }
+        this.age = age,
+        this.getAge = function () {
+            return this.age;
+        }
 }
-
-var people = new People("gsy","24");
+var people = new People("gsy", "24");
 console.dir(people)
 var UUID = require('uuid');
 console.log(UUID.v1());//基于时间戳生成
 console.log(UUID.v4());//随机生成
+var s = "1231245123"
+console.log(s.slice(2, 5))

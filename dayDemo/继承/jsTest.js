@@ -9,6 +9,7 @@
 // xiaoming.sex = 'nv';
 // console.log(xiaoming.hasOwnProperty('sex'));
 // console.log(xiaoming);
+var util = require('util');
 class Person {
     constructor(name, age) {
         this.name = name;
@@ -17,6 +18,7 @@ class Person {
     getInfo() {
         return "name" + " : " + this.name + " || age : " + this.age;
     }
+    getColum() { return "123" }
 }
 class Student extends Person {
     constructor(name, age, sNo) {
@@ -27,17 +29,10 @@ class Student extends Person {
         return "name" + " : " + this.name + " || age : " + this.age + " || sNo : " + this.sNo;
     }
 }
-
-
-
 var p1 = new Person('gsy', 10);
 console.log(p1.getInfo());
 var s1 = new Student('gsy', 10, 20132225);
 console.log(s1.getInfo());
-
-
-
-
 
 // class Student {
 //     constructor(name) {
@@ -69,12 +64,12 @@ console.log(s1.getInfo());
 
 
 var obj = {
-    name:"name",
-    ae:"age"
+    name: "name",
+    ae: "age"
 }
 console.log(obj.name.isValid);
-for(var key in obj){
-    console.log(key,'--->',obj[key]);
+for (var key in obj) {
+    console.log(key, '--->', obj[key]);
 }
 var A = function (name, age) {
     this.name = name;
